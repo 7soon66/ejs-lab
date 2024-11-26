@@ -1,11 +1,9 @@
 <%- include('./partials/nav') %>
 
-<title><% category %> Menu</title>
-
-<h1><% category %> Menu</h1>
+<h1><%= filteredMenu[0].category %> Menu</h1>
 
 <ul>
-  <% menuItems.forEach(item =>{%>
+  <% filteredMenu.forEach(item =>{%>
   <li>
     <%= item.name%> <%= item.price %> <%= itwm.rating %>
     <p><% item.details %></p>

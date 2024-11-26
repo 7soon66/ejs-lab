@@ -52,8 +52,8 @@ const RESTAURANT = {
     }
   ]
 }
-app.get('/home', (req, res) => {
-  res.render('home.ejs', { msg: 'welcome to home page', RESTAURANT })
+app.get('/', (req, res) => {
+  res.render('home.ejs', { RESTAURANT: RESTAURANT })
 })
 app.get('/menu', (req, res) => {
   res.render('menu.ejs', { menu: RESTAURANT.menu })
@@ -63,7 +63,7 @@ app.get('menu/:category', (req, res) => {
   const filteredMenu = RESTAURANT.menu.filter(
     (item) => item.category === category
   )
-  res.render('categort.ejs')
+  res.render('category.ejs', { filteredMenu })
 })
 
 app.listen(3000)
