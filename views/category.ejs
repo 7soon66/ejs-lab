@@ -3,10 +3,10 @@
 <h1><%= filteredMenu[0].category %> Menu</h1>
 
 <ul>
-  <% filteredMenu.forEach(item =>{%>
+  <% filteredMenu.forEach((item) =>{%>
   <li>
-    <%= item.name%> <%= item.price %> <%= itwm.rating %>
-    <p><% item.details %></p>
+    <%= item.name%> <%= item.price %> <%= item.rating %>
+    <p><%= item.details %></p>
   </li>
 
   <%}) %>

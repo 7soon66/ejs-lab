@@ -58,12 +58,15 @@ app.get('/', (req, res) => {
 app.get('/menu', (req, res) => {
   res.render('menu.ejs', { menu: RESTAURANT.menu })
 })
-app.get('menu/:category', (req, res) => {
-  const category = req.params.category
-  const filteredMenu = RESTAURANT.menu.filter(
-    (item) => item.category === category
-  )
-  res.render('category.ejs', { filteredMenu })
+app.get('/menu/:category', (req, res) => {
+  let filteredMenu = []
+  RESTAURANT.menu.forEach((element) => {
+    if (req.params.category === element.category) {
+      filteredMenu.push(element)
+    }
+  })
+
+  res.render('category.ejs', { filteredMenu: filteredMenu })
 })
 
 app.listen(3000)
